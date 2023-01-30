@@ -35,14 +35,17 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 
     {{-- Development scripts --}}
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
 
     {{-- Production scripts --}}
     {{-- <link rel="stylesheet" href="{{asset('build/assets/app-35613ee9.css')}}">
+    <link rel="stylesheet" href="{{asset('build/assets/app-35613ee9.css')}}">
     <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
 
 </head>
 <body>
+
+    
 
     <div class="mx-auto my-7 w-[911px] font-normal flex justify-end">
         <div class="w-min whitespace-nowrap p-3">
@@ -88,6 +91,56 @@
 
     <div class="h-40"></div>
     <x-toast-message />
+
+    <div id="bokehBackground" class="hidden transition-all duration-1000 ease-out" data-replace="{ 'opacity-100': 'opacity-0' }">
+        <div class="background">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <script>
+        // document.addEventListener('mousemove', hideSaver);
+        // function showSaver(){
+        //     document.addEventListener('mousemove', hideSaver);
+
+        //     var replacers = document.querySelectorAll('[data-replace]');
+        //     for(var i=0; i<replacers.length; i++){
+        //         let replaceClasses = JSON.parse(replacers[i].dataset.replace.replace(/'/g, '"'));
+        //         Object.keys(replaceClasses).forEach(function(key) {
+        //             replacers[i].classList.add(key);
+        //             replacers[i].classList.remove(replaceClasses[key]);
+        //         });
+        //     }
+        // }
+        // function hideSaver(){
+        //     document.removeEventListener('mousemove', hideSaver);
+
+            
+        //     var replacers = document.querySelectorAll('[data-replace]');
+        //     for(var i=0; i<replacers.length; i++){
+        //         let replaceClasses = JSON.parse(replacers[i].dataset.replace.replace(/'/g, '"'));
+        //         Object.keys(replaceClasses).forEach(function(key) {
+        //             replacers[i].classList.remove(key);
+        //             replacers[i].classList.add(replaceClasses[key]);
+        //         });
+        //     }
+
+
+        //     setTimeout(function () {
+        //         showSaver();
+        //     }, 2000000);
+        // }
+        
+    </script>
     
 </body>
 </html>

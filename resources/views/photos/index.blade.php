@@ -1,5 +1,5 @@
 <x-layout :views="$views" :active-nav="$active_nav">
-    <div class="flex flex-wrap justify-center mt-12 mx-2.5">
+    <div class="flex flex-wrap justify-center mt-20 mx-2.5">
         @foreach($photos as $photo)
             <div class="mx-2.5 mb-5">
                 <img src="{{asset('images/photos/'.$photo->hex.'/xs-'.$photo->filename)}}" class="h-[213px] aspect-auto" alt="">

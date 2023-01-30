@@ -92,7 +92,12 @@ class PhotoSeeder extends Seeder
         ];
 
         foreach($photos as $photo){
-            Photo::create($photo);
+            Photo::insert([
+                'hex' => $photo['hex'],
+                'user_id' => $photo['user_id'],
+                'filename' => $photo['filename'],
+                'status' => $photo['status']
+            ]);
         }
     }
 }

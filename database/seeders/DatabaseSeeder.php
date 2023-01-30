@@ -22,7 +22,11 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            SiteSeeder::class
+            SiteSeeder::class,
+            BrandSeeder::class,
+            CameraSeeder::class,
+            LensSeeder::class,
+            PhotoSeeder::class,
         ]);
     }
 }

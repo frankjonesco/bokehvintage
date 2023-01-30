@@ -10,7 +10,8 @@ class Site extends Model
     use HasFactory;
 
     public function views(){
-        return Site::where('id', 1)->first()->views;
+        $views = Site::where('id', 1)->first()->views;
+        return $views;
     }
 
     // Get Photos

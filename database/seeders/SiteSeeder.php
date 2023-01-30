@@ -16,7 +16,7 @@ class SiteSeeder extends Seeder
     public function run()
     {
         Site::create([
-            'views' => 1029
+            'views' => 1198
         ]);
     }
 }

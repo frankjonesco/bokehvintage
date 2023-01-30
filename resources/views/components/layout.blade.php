@@ -49,7 +49,7 @@
 
     <div class="mx-auto my-7 w-[911px] font-normal flex justify-end">
         <div class="w-min whitespace-nowrap p-3">
-            Views: {{$views}}
+            Views: {{number_format($views, 0, '.', ',')}}
         </div>
     </div>
     <a href="/">

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             SiteSeeder::class,
+            UserSeeder::class,
             BrandSeeder::class,
             CameraSeeder::class,
             LensSeeder::class,

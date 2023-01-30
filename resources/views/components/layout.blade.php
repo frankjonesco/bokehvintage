@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @php
+        if(!isset($meta)){
+            $meta = [
+                'title' => 'Bokeh Vintage - Best vintage lenses mirrorless cameras',
+                'description' => 'A collective for bokeh enthusiasts. Experimental vintage lens, mirrorless camera combinations.',
+                'keywords' => 'bokeh, photography, vintage, lens, experimental, mirrorless, camera, photograpy, bokeh photography, vintage lens, experimental photography, mirrorless camera, vintage bokeh photography, experimental bokeh photography, mirrorless camera vitage lenses, bokeh mirrorless camera'
+            ];
+        }    
+    @endphp
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bokeh Vintage - Best vintage lenses mirrorless cameras</title>
-    <meta name="description" content="A collective for bokeh enthusiasts. Experimental vintage lens, mirrorless camera combinations.">
-    <meta name="keywords" content="bokeh, photography, vintage, lens, experimental, mirrorless, camera, photograpy, bokeh photography, vintage lens, experimental photography, mirrorless camera, vintage bokeh photography, experimental bokeh photography, mirrorless camera vitage lenses, bokeh mirrorless camera">
+    <title>{{$meta['title']}}</title>
+    <meta name="description" content="{{$meta['keywords']}}">
+    <meta name="keywords" content="{{$meta['keywords']}}">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EC56D9HKS" defer></script>
@@ -26,11 +35,11 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 
     {{-- Development scripts --}}
-    {{-- @vite('resources/css/app.css') --}}
+    @vite('resources/css/app.css')
 
     {{-- Production scripts --}}
-    <link rel="stylesheet" href="{{asset('build/assets/app-35613ee9.css')}}">
-    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script>
+    {{-- <link rel="stylesheet" href="{{asset('build/assets/app-35613ee9.css')}}">
+    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
 
 </head>
 <body>
@@ -56,7 +65,7 @@
             </li>
             @auth
                 <li class="">
-                    <a href="/account" aria-label="Login page" class="py-3 px-3 mx-2 {{$activeNav == 'account' ? 'bg-gray-800 text-white rounded-sm' : null}}">Your account</a>
+                    <a href="/profile" aria-label="Login page" class="py-3 px-3 mx-2 {{$activeNav == 'profile' ? 'bg-gray-800 text-white rounded-sm' : null}}">Profile</a>
                 </li>
                 <li>
                     <form action="/logout" class="inline" method="POST">

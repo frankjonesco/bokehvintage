@@ -78,7 +78,7 @@ class UserController extends Controller
             'password' => $request->password
         ])){
             $request->session()->regenerate();
-            return redirect('/account')->with('message', 'Welcome back.');
+            return redirect('/profile')->with('message', 'Welcome back.');
         }
         
         // Or email
@@ -87,7 +87,7 @@ class UserController extends Controller
             'password' => $request->password
         ])){
             $request->session()->regenerate();
-            return redirect('/account')->with('message', 'Welcome back.');
+            return redirect('/profile')->with('message', 'Welcome back.');
         }
         
         // Or regect login attempt

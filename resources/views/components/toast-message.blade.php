@@ -1,11 +1,11 @@
 @if(session()->has('message'))
-    <div class="fixed left-1/2 top-6 translate-y-12 transform -translate-x-1/2 transition-all duration-200 ease-in" data-replace="{ 'opacity-0': 'opacity-100', 'translate-y-12': 'translate-y-0' }">
+    <div class="">
         <div 
             id="toast-success" 
-            class="flex items-center p-4 mb-4 w-full max-w-xs text-gray-800 bg-lime-400 rounded-sm border-0 border-gray-800" role="alert" 
+            class="opacity-0 fixed left-1/2 -translate-x-1/2 top-1/2 translate-y-full bg-lime-400 w-min-content p-8 rounded-sm transform transition-all duration-250 ease-out" data-replace="{ 'opacity-0': 'opacity-100', 'translate-y-full': '-translate-y-1/2' }" role="alert" 
         >
             <div 
-                class="mx-3 text-LG font-normal text-center"
+                class="mx-3 !text-3xl font-normal text-center text-gray-700"
             >
                 {{session('message')}}
                 @if(session()->has('message_part_two'))
@@ -18,16 +18,6 @@
 @endif
 
 <script>
-    // document.addEventListener("DOMContentLoaded", function(){
-    //     var replacers = document.querySelectorAll('[data-replace]');
-    //     for(var i=0; i<replacers.length; i++){
-    //         let replaceClasses = JSON.parse(replacers[i].dataset.replace.replace(/'/g, '"'));
-    //         Object.keys(replaceClasses).forEach(function(key) {
-    //             replacers[i].classList.remove(key);
-    //             replacers[i].classList.add(replaceClasses[key]);
-    //         });
-    //     }
-    // });
     document.addEventListener("DOMContentLoaded", function(){
         setTimeout(function(){
             var replacers = document.querySelectorAll('[data-replace]');
@@ -39,7 +29,6 @@
                 });
             }
         }, 0 /* 0.001 seconds */ );
-
         setTimeout(function(){
             var replacers = document.querySelectorAll('[data-replace]');
             for(var i=0; i<replacers.length; i++){

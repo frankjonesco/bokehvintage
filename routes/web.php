@@ -6,7 +6,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\CameraController;
-use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,12 +100,12 @@ Route::controller(UserController::class)->middleware('guest')->group(function(){
 
 /*
 |--------------------------------------------------------------------------
-| Routes for AccountController
+| Routes for ProfileController
 |--------------------------------------------------------------------------
 */
 
-Route::controller(AccountController::class)->middleware('auth')->group(function(){
-    Route::get('/account', 'index');
+Route::controller(ProfileController::class)->middleware('auth')->group(function(){
+    Route::get('/profile', 'index');
 });
 
 

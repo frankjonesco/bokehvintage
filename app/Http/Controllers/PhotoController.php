@@ -29,30 +29,24 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-
-        if($request->hasFile('photo')){
-            dd('hasFile');
-        }
         // Validate form
         $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100'
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100'
         ]);
 
+        // Create a new photo in DB
         $photo = Photo::create([
             'hex' => Str::random(11),
             'user_id' => auth()->user()->id,
             'filename' => '',
-            'status' => 'public'
+            'status' => 'public',
         ]);
 
-    
-        
-
-        // Upload the image, make thumbnail, update database
+        // Upload the image and run savePhoto method
         if($request->hasFile('image')){
-            $photo->saveImage($request);
+            $photo->saveImage($request, 'photos', $photo->hex);
         }
         
-        return redirect('dashboard/articles/image/crop')->with('success', 'Your image was uploaded. Now let\'s crop it.');
+        return redirect('profile')->with('success', 'Your image was uploaded. Now let\'s crop it.');
     }
 }

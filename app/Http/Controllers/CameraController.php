@@ -33,7 +33,7 @@ class CameraController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

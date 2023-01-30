@@ -38,7 +38,7 @@ Route::controller(SiteController::class)->group(function(){
 */
 
 Route::controller(PhotoController::class)->middleware('auth')->group(function(){
-    
+    Route::post('/photos/store', 'store');
 });
 
 Route::controller(PhotoController::class)->group(function(){
@@ -106,7 +106,6 @@ Route::controller(UserController::class)->middleware('guest')->group(function(){
 
 Route::controller(AccountController::class)->middleware('auth')->group(function(){
     Route::get('/account', 'index');
-    Route::post('/account/images/upload', 'uploadImage');
 });
 
 

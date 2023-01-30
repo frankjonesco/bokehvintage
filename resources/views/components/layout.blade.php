@@ -20,17 +20,17 @@
     {{-- Google Font - 'Quicksand' --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     {{-- Alpine.js --}}
     <script src="//unpkg.com/alpinejs" defer></script>
 
     {{-- Development scripts --}}
-    @vite('resources/css/app.css')
+    {{-- @vite('resources/css/app.css') --}}
 
     {{-- Production scripts --}}
-    {{-- <link rel="stylesheet" href="{{asset('build/assets/app-5c82b752.css')}}">
-    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
+    <link rel="stylesheet" href="{{asset('build/assets/app-35613ee9.css')}}">
+    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script>
 
 </head>
 <body>

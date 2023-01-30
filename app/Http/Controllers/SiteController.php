@@ -17,4 +17,5 @@ class SiteController extends Controller
             'active_nav' => 'photos'
         ]);
     }
+
 }

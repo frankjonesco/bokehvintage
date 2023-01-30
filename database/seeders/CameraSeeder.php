@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Site;
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
-class SiteSeeder extends Seeder
+class CameraSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +14,6 @@ class SiteSeeder extends Seeder
      */
     public function run()
     {
-        Site::create([
-            'views' => 270
-        ]);
+        //
     }
 }

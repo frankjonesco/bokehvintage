@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LensController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\CameraController;
 use App\Http\Controllers\AccountController;
 
 /*
@@ -16,17 +19,105 @@ use App\Http\Controllers\AccountController;
 |
 */
 
-Route::get('/', [SiteController::class, 'home']);
+/*
+|--------------------------------------------------------------------------
+| Routes for SiteController
+|--------------------------------------------------------------------------
+*/
 
-Route::get('/signup', [UserController::class, 'signup']);
+Route::controller(SiteController::class)->group(function(){
+    Route::get('/', 'home');
+});
 
-Route::post('/users/create', [UserController::class, 'create']);
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
 
-Route::post('/authenticate', [UserController::class, 'authenticate']);
+/*
+|--------------------------------------------------------------------------
+| Routes for PhotoController
+|--------------------------------------------------------------------------
+*/
 
-Route::post('/logout', [UserController::class, 'logout']);
+Route::controller(PhotoController::class)->middleware('auth')->group(function(){
+    
+});
 
-Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
-Route::post('/account/images/upload', [AccountController::class, 'uploadImage'])->middleware('auth');
+Route::controller(PhotoController::class)->group(function(){
+    Route::get('/photos', 'index');
+});
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Routes for LensController
+|--------------------------------------------------------------------------
+*/
+
+Route::controller(LensController::class)->middleware('auth')->group(function(){
+    
+});
+
+Route::controller(LensController::class)->group(function(){
+    Route::get('/lenses', 'index');
+});
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Routes for CameraController
+|--------------------------------------------------------------------------
+*/
+
+Route::controller(CameraController::class)->middleware('auth')->group(function(){
+    
+});
+
+Route::controller(CameraController::class)->group(function(){
+    Route::get('/cameras', 'index');
+});
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Routes for UserController
+|--------------------------------------------------------------------------
+*/
+
+Route::controller(UserController::class)->middleware('auth')->group(function(){
+    Route::post('/logout', 'logout');
+});
+
+Route::controller(UserController::class)->middleware('guest')->group(function(){
+    Route::get('/login', 'login')->name('login');
+    Route::get('/signup', 'signup');
+    Route::post('/users/create', 'create');
+    Route::post('/authenticate', 'authenticate');
+});
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Routes for AccountController
+|--------------------------------------------------------------------------
+*/
+
+Route::controller(AccountController::class)->middleware('auth')->group(function(){
+    Route::get('/account', 'index');
+    Route::post('/account/images/upload', 'uploadImage');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+

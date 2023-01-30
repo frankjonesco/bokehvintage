@@ -3,7 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -28,32 +29,83 @@ class Photo extends Model
 
     // Handle image upload
     public function savePhoto($request, $directory, $hex){  
-        // Define a name for the new image
-        $image_name = auth()->user->username.'-'.Str::random('11').$request->image->extension();
-        // Specify the direcory path
+        // dd($request->photo->extension());
+        $image_name = Str::random('11').'-'.auth()->user()->username.'.'.$request->photo->extension();
+
         $directory_path = public_path('images/'.$directory.'/'.$hex);
-        // Store in public folder
-        $request->file('image')->move($directory_path, $image_name);
-        // List all the file in the directory
-        // $files_in_folder = File::allFiles($directory_path);
-        // // Delete all files that are not the new image
-        // foreach($files_in_folder as $key => $path){
-        //     if($path != $directory_path.'/'.$image_name){
-        //         File::delete($path);
-        //     }
-        // }
-        // Create a thumbnail
-        // self::makeImageThumbnail($directory_path, $image_name);
+
+        File::makeDirectory($directory_path);
+
+        $request->file('photo')->move($directory_path, $image_name);
+
+        self::encodeImage($directory_path, $image_name);
+
+        $image_name = self::replaceFileExtension($image_name);
+
+        self::makeImageSizes($directory_path, $image_name, 1200, 'lg');
+        self::makeImageSizes($directory_path, $image_name, 960, 'md');
+        self::makeImageSizes($directory_path, $image_name, 720, 'sm');
+        self::makeImageSizes($directory_path, $image_name, 320, 'xs');
+
         return $image_name;
     }
 
+    // Encode image
+    public function encodeImage($directory_path, $image_name){
+        // dd(pathinfo($image_name, PATHINFO_EXTENSION));
+        $img = Image::make($directory_path.'/'.$image_name)->encode('webp');
+        File::delete($directory_path.'/'.$image_name);
+        
+        $image_name = self::replaceFileExtension($image_name);
+        
+        $img->save($directory_path.'/'.$image_name, 75);
+
+        return true;
+    }
+
+    public function replaceFileExtension($image_name){
+        $image_name = str_replace(pathinfo($image_name, PATHINFO_EXTENSION), '', $image_name);
+        $image_name = rtrim($image_name, '.');
+        return $image_name.'.webp';
+    }
+
     // Make image thumbnail
-    // public function makeImageThumbnail($directory_path, $image_name, $width = 240, $prepend = 'tn'){
-    //     // Resize image thumbnail
-    //     Image::make($directory_path.'/'.$image_name)
-    //         ->resize($width, null, function ($constraint){ 
-    //             $constraint->aspectRatio(); 
-    //         })
-    //         ->save($directory_path.'/'.$prepend.'-'.$image_name, 60);
-    // }
+    public function makeImageSizes($directory_path, $image_name, $dimension = 320, $prepend = 'xs'){
+        // dd($directory_path.'/'.$image_name);
+        $img = Image::make($directory_path.'/'.$image_name);
+
+        $width  = $img->width();
+        $height = $img->height();
+
+        $vertical   = (($width < $height) ? true : false);
+        $horizontal = (($width > $height) ? true : false);
+        $square     = (($width = $height) ? true : false);
+
+        if ($vertical) {
+            $top = $bottom = 0;
+            $newHeight = ($dimension) - ($bottom + $top);
+            $img->resize(null, $newHeight, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+        } else if ($horizontal) {
+            $right = $left = 0;
+            $newWidth = ($dimension) - ($right + $left);
+            $img->resize($newWidth, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+        } else if ($square) {
+            $right = $left = 0;
+            $newWidth = ($dimension) - ($left + $right);
+            $img->resize($newWidth, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+        }
+
+        // Resize image thumbnail
+        $img->save($directory_path.'/'.$prepend.'-'.$image_name, 75);
+    
+    }
 }

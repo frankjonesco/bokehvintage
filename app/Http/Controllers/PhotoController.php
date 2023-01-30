@@ -29,11 +29,12 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->photo->extension());
         // Validate form
         $request->validate([
-            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100'
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg,webp|max:2048|dimensions:min_width=800,min_height=400'
         ]);
-
+        
         // Create a new photo in DB
         $photo = Photo::create([
             'hex' => Str::random(11),
@@ -42,10 +43,13 @@ class PhotoController extends Controller
             'status' => 'public',
         ]);
 
+        
         // Upload the image and run savePhoto method
-        if($request->hasFile('image')){
-            $photo->saveImage($request, 'photos', $photo->hex);
+        if($request->hasFile('photo')){
+            $photo->filename = $photo->savePhoto($request, 'photos', $photo->hex);
         }
+
+        $photo->save();
         
         return redirect('profile')->with('success', 'Your image was uploaded. Now let\'s crop it.');
     }

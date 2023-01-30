@@ -14,6 +14,7 @@ class ProfileController extends Controller
         $site->views = $site->views() + 1;
         $site->save();
         return view('profile.index', [
+            'photos' => $site->getPhotos(),
             'views' => $site->views(),
             'active_nav' => 'profile'
         ]);

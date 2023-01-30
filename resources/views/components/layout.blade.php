@@ -50,7 +50,7 @@
         </div>
     </div>
     <a href="/">
-        <img src="/images/bokehvintage-logo.png" alt="Bokeh Vintage Logo" title="Bokeh Vintage Logo" class="mx-auto w-[911px] h-[183px] border-0">
+        <img src="/images/bokehvintage-logo.webp" alt="Bokeh Vintage Logo" title="Bokeh Vintage Logo" class="mx-auto w-[911px] h-[183px] border-0">
     </a>
     <nav class="shift w-[911px] mx-auto">
         <ul class="flex font-normal text-lg text-gray-600">

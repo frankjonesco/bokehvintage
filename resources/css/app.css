@@ -9,7 +9,7 @@
 nav ul li a,
 nav ul li a:after,
 nav ul li a:before {
-    transition: all .5s;
+    transition: all .35s;
 }
 
 nav ul li a:hover {
@@ -103,11 +103,29 @@ nav.shift ul li a:hover:after {
 /* Tailwind Layer Base */
 
 @layer base {
+    
     /* Body */
+    
     body{
         font-family: 'Quicksand', sans-serif;
         @apply text-gray-500;
         @apply bg-white;
+    }
+
+
+    /* Links */
+
+    a.btn,
+    button.btn{
+        @apply bg-gray-800;
+        @apply inline-block;
+        @apply w-min;
+        @apply whitespace-nowrap;
+        @apply py-3;
+        @apply px-3;
+        @apply mx-2; 
+        @apply rounded-sm;
+        @apply text-white;
     }
 
 }

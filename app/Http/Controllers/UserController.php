@@ -59,7 +59,7 @@ class UserController extends Controller
         // Log user in
         auth()->login($user);
 
-        return redirect('/')->with('message', 'Account created. Welcome to Bokeh Vintage.');
+        return redirect('/')->with('message', 'Account created.')->with('message_part_two', 'Welcome to Bokeh Vintage.');
 
     }
 

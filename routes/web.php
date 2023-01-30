@@ -22,10 +22,11 @@ Route::get('/signup', [UserController::class, 'signup']);
 
 Route::post('/users/create', [UserController::class, 'create']);
 
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
 Route::post('/authenticate', [UserController::class, 'authenticate']);
 
 Route::post('/logout', [UserController::class, 'logout']);
 
-Route::get('/account', [AccountController::class, 'index']);
+Route::get('/account', [AccountController::class, 'index'])->middleware('auth');
+Route::post('/account/images/upload', [AccountController::class, 'uploadImage'])->middleware('auth');

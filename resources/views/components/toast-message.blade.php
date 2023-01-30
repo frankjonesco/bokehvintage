@@ -1,19 +1,17 @@
 @if(session()->has('message'))
-    <div class="fixed left-1/2 top-1/4 translate-y-12 transform -translate-x-1/2 transition-all duration-200 ease-in" data-replace="{ 'opacity-0': 'opacity-100', 'translate-y-12': 'translate-y-0' }">
+    <div class="fixed left-1/2 top-6 translate-y-12 transform -translate-x-1/2 transition-all duration-200 ease-in" data-replace="{ 'opacity-0': 'opacity-100', 'translate-y-12': 'translate-y-0' }">
         <div 
             id="toast-success" 
-            class="flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg border border-white shadow" role="alert" 
+            class="flex items-center p-4 mb-4 w-full max-w-xs text-gray-800 bg-lime-400 rounded-sm border-0 border-gray-800" role="alert" 
         >
-            <div
-                class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200"
-            >
-                <span class="sr-only">Check icon</span>
-                <i class="fa-solid fa-check self-center mr-0"></i>
-            </div>
             <div 
-                class="mx-3 text-sm font-normal"
+                class="mx-3 text-LG font-normal text-center"
             >
                 {{session('message')}}
+                @if(session()->has('message_part_two'))
+                    <br>
+                    {{session('message_part_two')}}
+                @endif
             </div>
         </div>
     </div>

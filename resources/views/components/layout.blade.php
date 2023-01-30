@@ -46,7 +46,13 @@
     <nav class="shift w-[911px] mx-auto">
         <ul class="flex font-normal text-lg text-gray-600">
             <li class="">
-                <a href="/" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'photos' ? 'bg-gray-800 text-white' : null}}">Photos</a>
+                <a href="/photos" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'photos' ? 'bg-gray-800 text-white' : null}}">Photos</a>
+            </li>
+            <li class="">
+                <a href="/lenses" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'lenses' ? 'bg-gray-800 text-white' : null}}">Lenses</a>
+            </li>
+            <li class="">
+                <a href="/cameras" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'cameras' ? 'bg-gray-800 text-white' : null}}">Cameras</a>
             </li>
             @auth
                 <li class="">

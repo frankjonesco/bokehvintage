@@ -54,7 +54,7 @@
     <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
 
 </head>
-<body>
+<body class="h-screen">
 
     
 
@@ -98,35 +98,37 @@
         </ul>
     </nav>
 
-    {{$slot}}
+    <div class="flex flex-col">
+        <div class="grow pb-40">
+            {{$slot}}
+        </div>
 
-    <div class="h-40"></div>
+        <footer class="mx-12 pt-6 border-t border-t-gray-400 flex">
+            <ul class="flex grow">
+                <li class="mr-5">
+                    <a href="/">Home</a>
+                </li>
+                <li class="mr-5">
+                    <a href="/about">About</a>
+                </li>
+                <li class="mr-5">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li class="mr-5">
+                    <a href="/terms">Terms</a>
+                </li>
+                <li class="mr-5">
+                    <a href="/privacy">Privacy</a>
+                </li>
+            </ul>
+            <span>
+                <a href="/">Bokeh Vintage</a>
+            </span>
+            <span class="mx-4">|</span>
+            <span>Copyright &copy; {{date('Y', time())}}</span>
 
-    <footer class="mx-12 pt-6 border-t border-t-gray-400 flex">
-        <ul class="flex grow">
-            <li class="mr-5">
-                <a href="/">Home</a>
-            </li>
-            <li class="mr-5">
-                <a href="/about">About</a>
-            </li>
-            <li class="mr-5">
-                <a href="/contact">Contact</a>
-            </li>
-            <li class="mr-5">
-                <a href="/terms">Terms</a>
-            </li>
-            <li class="mr-5">
-                <a href="/privacy">Privacy</a>
-            </li>
-        </ul>
-        <span>
-            <a href="/">Bokeh Vintage</a>
-        </span>
-        <span class="mx-4">|</span>
-        <span>Copyright &copy; {{date('Y', time())}}</span>
-
-    </footer>
+        </footer>
+    </div>
 
     <x-toast-message />
 

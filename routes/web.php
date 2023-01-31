@@ -27,6 +27,10 @@ use App\Http\Controllers\ProfileController;
 
 Route::controller(SiteController::class)->group(function(){
     Route::get('/', 'home');
+    Route::get('/about', 'showAbout');
+    Route::get('/contact', 'showContact');
+    Route::get('/terms', 'showTerms');
+    Route::get('/privacy', 'showPrivacy');
 });
 
 

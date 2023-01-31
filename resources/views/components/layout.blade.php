@@ -57,14 +57,20 @@
 <body class="w-screen h-screen">
 
     <div class="flex flex-col h-screen">
-        <div class="mx-auto my-7 w-[911px] font-normal flex justify-end">
-            <div class="w-min whitespace-nowrap p-3">
+        <div class="mx-auto my-7 pl-3 w-[911px] font-normal flex justify-end items-center">
+            
+            <a href="https://www.facebook.com/profile.php?id=100089861233864" class="transition-all duration-1000 hover:rotate-180 hover:text-lime-400">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/BokehVintage" target="_blank" class="mx-3 transition-all duration-1000 hover:rotate-180 hover:text-lime-400">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/" class="transition-all duration-1000 hover:rotate-180 hover:text-lime-400">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <div class="w-min whitespace-nowrap p-3 grow text-end">
                 Views: {{number_format(siteViews(), 0, '.', ',')}}
             </div>
-            <i class="fa fa-copy"></i>
-               <i class="fa fa-save"></i>
-               <i class="fa fa-trash"></i>
-               <i class="fa fa-home"></i>
         </div>
 
         <a href="/">

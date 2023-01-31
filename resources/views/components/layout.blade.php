@@ -46,12 +46,12 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 
     {{-- Development scripts --}}
-    {{-- @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
 
     {{-- Production scripts --}}
-    <link rel="stylesheet" href="{{asset('build/assets/app-4c403b0e.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('build/assets/app-4c403b0e.css')}}">
     <link rel="stylesheet" href="{{asset('build/assets/app-d564a820.css')}}">
-    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script>
+    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
 
 </head>
 <body>
@@ -101,6 +101,33 @@
     {{$slot}}
 
     <div class="h-40"></div>
+
+    <footer class="mx-12 pt-6 border-t border-t-gray-400 flex">
+        <ul class="flex grow">
+            <li class="mr-5">
+                <a href="/">Home</a>
+            </li>
+            <li class="mr-5">
+                <a href="/about">About</a>
+            </li>
+            <li class="mr-5">
+                <a href="/contact">Contact</a>
+            </li>
+            <li class="mr-5">
+                <a href="/terms">Terms</a>
+            </li>
+            <li class="mr-5">
+                <a href="/privacy">Privacy</a>
+            </li>
+        </ul>
+        <span>
+            <a href="/">Bokeh Vintage</a>
+        </span>
+        <span class="mx-4">|</span>
+        <span>Copyright &copy; {{date('Y', time())}}</span>
+
+    </footer>
+
     <x-toast-message />
 
     <div id="bokehBackground" class="hidden transition-all duration-1000 ease-out" data-replace="{ 'opacity-100': 'opacity-0' }">

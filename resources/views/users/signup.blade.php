@@ -1,5 +1,5 @@
 <x-layout :meta="$meta" :active-nav="$active_nav">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    {{-- <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="582337696687-3ks3c3pelu5og465mg115qnndrmlhg6v.apps.googleusercontent.com">
     <script>
         function onSignIn(googleUser) {
@@ -9,10 +9,10 @@
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         }
-    </script>
+    </script> --}}
     <x-container-thin>
         <h1>Join the community to share your own experiments and see what others photographers are doing.</h1>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        {{-- <div class="g-signin2" data-onsuccess="onSignIn"></div> --}}
         <form action="/users/create" method="POST" class="mt-8 mx-auto w-[911px] flex flex-col">
             @csrf
             @error('first_name')

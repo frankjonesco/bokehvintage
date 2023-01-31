@@ -54,75 +54,79 @@
     <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
 
 </head>
-<body class="h-screen">
+<body class="w-screen h-screen">
 
-    
-
-    <div class="mx-auto my-7 w-[911px] font-normal flex justify-end">
-        <div class="w-min whitespace-nowrap p-3">
-            Views: {{number_format(siteViews(), 0, '.', ',')}}
+    <div class="flex flex-col h-screen">
+        <div class="mx-auto my-7 w-[911px] font-normal flex justify-end">
+            <div class="w-min whitespace-nowrap p-3">
+                Views: {{number_format(siteViews(), 0, '.', ',')}}
+            </div>
+            <i class="fa fa-copy"></i>
+               <i class="fa fa-save"></i>
+               <i class="fa fa-trash"></i>
+               <i class="fa fa-home"></i>
         </div>
-    </div>
-    <a href="/">
-        <img src="/images/bokehvintage-logo.webp" alt="Bokeh Vintage Logo" title="Bokeh Vintage Logo" class="mx-auto w-[911px] h-[183px] border-0">
-    </a>
-    <nav class="shift w-[911px] mx-auto">
-        <ul class="flex font-normal text-lg text-gray-600">
-            <li class="">
-                <a href="/photos" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'photos' ? 'bg-gray-800 text-white' : null}}">Photos</a>
-            </li>
-            <li class="">
-                <a href="/lenses" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'lenses' ? 'bg-gray-800 text-white' : null}}">Lenses</a>
-            </li>
-            <li class="">
-                <a href="/cameras" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'cameras' ? 'bg-gray-800 text-white' : null}}">Cameras</a>
-            </li>
-            @auth
-                <li class="">
-                    <a href="/profile" aria-label="Login page" class="py-3 px-3 mx-2 {{$activeNav == 'profile' ? 'bg-gray-800 text-white rounded-sm' : null}}">Profile</a>
-                </li>
-                <li>
-                    <form action="/logout" class="inline" method="POST">
-                        @csrf
-                        <a href="#" onclick="this.parentNode.submit()" class="py-3 px-3 mx-2 ">Logout</a>
-                    </form>
-                </li>
-            @else
-                <li class="">
-                    <a href="/login" aria-label="Login page" class="py-3 px-3 mx-2 {{$activeNav == 'login' ? 'bg-gray-800 text-white rounded-sm' : null}}">Log in</a>
-                </li>
-                <li class="">
-                    <a href="/signup" aria-label="Sign up page" class="py-3 px-3 mx-2 {{$activeNav == 'signup' ? 'bg-gray-800 text-white rounded-sm' : null}}">Sign up</a>
-                </li>
-            @endauth
-        </ul>
-    </nav>
 
-    <div class="flex flex-col">
-        <div class="grow pb-40">
+        <a href="/">
+            <img src="/images/bokehvintage-logo.webp" alt="Bokeh Vintage Logo" title="Bokeh Vintage Logo" class="mx-auto w-[911px] h-[183px] border-0">
+        </a>
+
+        <nav class="shift w-[911px] mx-auto">
+            <ul class="flex font-normal text-lg text-gray-600">
+                <li class="">
+                    <a href="/photos" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'photos' ? 'bg-gray-800 text-white' : null}}">Photos</a>
+                </li>
+                <li class="">
+                    <a href="/lenses" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'lenses' ? 'bg-gray-800 text-white' : null}}">Lenses</a>
+                </li>
+                <li class="">
+                    <a href="/cameras" aria-label="Phots library" class="py-3 px-3 mx-2 rounded-sm {{$activeNav == 'cameras' ? 'bg-gray-800 text-white' : null}}">Cameras</a>
+                </li>
+                @auth
+                    <li class="">
+                        <a href="/profile" aria-label="Login page" class="py-3 px-3 mx-2 {{$activeNav == 'profile' ? 'bg-gray-800 text-white rounded-sm' : null}}">Profile</a>
+                    </li>
+                    <li>
+                        <form action="/logout" class="inline" method="POST">
+                            @csrf
+                            <a href="#" onclick="this.parentNode.submit()" class="py-3 px-3 mx-2 ">Logout</a>
+                        </form>
+                    </li>
+                @else
+                    <li class="">
+                        <a href="/login" aria-label="Login page" class="py-3 px-3 mx-2 {{$activeNav == 'login' ? 'bg-gray-800 text-white rounded-sm' : null}}">Log in</a>
+                    </li>
+                    <li class="">
+                        <a href="/signup" aria-label="Sign up page" class="py-3 px-3 mx-2 {{$activeNav == 'signup' ? 'bg-gray-800 text-white rounded-sm' : null}}">Sign up</a>
+                    </li>
+                @endauth
+            </ul>
+        </nav>
+
+        <main class="grow h-full">
             {{$slot}}
-        </div>
+        </main>
 
-        <footer class="mx-12 pt-6 border-t border-t-gray-400 flex">
+        <footer class="mx-12 mt-12 py-6 border-t border-t-gray-400 flex">
             <ul class="flex grow">
                 <li class="mr-5">
-                    <a href="/">Home</a>
+                    <a href="/" class="underline-offset-8 hover:underline">Home</a>
                 </li>
                 <li class="mr-5">
-                    <a href="/about">About</a>
+                    <a href="/about" class="underline-offset-8 hover:underline">About</a>
                 </li>
                 <li class="mr-5">
-                    <a href="/contact">Contact</a>
+                    <a href="/contact" class="underline-offset-8 hover:underline">Contact</a>
                 </li>
                 <li class="mr-5">
-                    <a href="/terms">Terms</a>
+                    <a href="/terms" class="underline-offset-8 hover:underline">Terms</a>
                 </li>
                 <li class="mr-5">
-                    <a href="/privacy">Privacy</a>
+                    <a href="/privacy" class="underline-offset-8 hover:underline">Privacy</a>
                 </li>
             </ul>
             <span>
-                <a href="/">Bokeh Vintage</a>
+                <a href="/"" class="underline-offset-8 hover:underline">Bokeh Vintage</a>
             </span>
             <span class="mx-4">|</span>
             <span>Copyright &copy; {{date('Y', time())}}</span>

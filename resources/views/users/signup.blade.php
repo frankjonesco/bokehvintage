@@ -84,14 +84,14 @@
                     class="mt-2 ml-2 mr-5 w-6 h-6 text-lg font-medium !outline-red-500 accent-lime-400 text-gray-900"
                 >
                 <label for="terms_agreed" class="text-lg mt-2">
-                    I agree to the terms and conditions.
+                    I agree to the <a href="/terms" class="underline underline-offset-8 hover:no-underline">terms of use</a>.
                 </label>
             </div>
             <button
                 type="submit"
                 class="mt-7 py-3 px-3 bg-gray-800 text-white whitespace-nowrap w-min rounded-sm"
             >
-                Complete sign up
+                Complete registration
             </button>
         </form>
     </x-container-thin>

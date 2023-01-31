@@ -15,13 +15,12 @@ class LensController extends Controller
      */
     public function index(Site $site)
     {
-        $site = Site::where('id', 1)->first();
-        $site->views = $site->views() + 1;
-        $site->save();
         return view('lenses.index', [
             'lenses' => $site->getLenses(),
-            'views' => $site->views,
-            'active_nav' => 'lenses'
+            'active_nav' => 'lenses',
+            'meta' => [
+                'title' => 'Lenses'
+            ]
         ]);
     }
 
@@ -32,7 +31,9 @@ class LensController extends Controller
      */
     public function create()
     {
-        //
+        return view('lenses.create', [
+            'active_nav' => 'profile',
+        ]);
     }
 
     /**

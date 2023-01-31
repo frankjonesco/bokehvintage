@@ -16,7 +16,7 @@ class Site extends Model
 
     // Get Photos
     public function getPhotos($status = 'public'){
-        return Photo::where('status', $status)->latest()->get();
+        return Photo::where('status', $status)->orderBy('id', 'DESC')->get();
     }
 
 

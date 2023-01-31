@@ -12,23 +12,21 @@ class UserController extends Controller
 {
     // Show login form
     public function login(){
-        $site = Site::where('id', 1)->first();
-        $site->views = $site->views() + 1;
-        $site->save();
         return view('users.login', [
-            'views' => $site->views,
-            'active_nav' => 'login'
+            'active_nav' => 'login',
+            'meta' => [
+                'title' => 'Login'
+            ]
         ]);
     }
 
     // Show sign up form
     public function signup(){
-        $site = Site::where('id', 1)->first();
-        $site->views = $site->views() + 1;
-        $site->save();
         return view('users.signup', [
-            'views' => $site->views,
-            'active_nav' => 'signup'
+            'active_nav' => 'signup',
+            'meta' => [
+                'title' => 'Sign up'
+            ]
         ]);
     }
 
@@ -78,7 +76,7 @@ class UserController extends Controller
             'password' => $request->password
         ])){
             $request->session()->regenerate();
-            return redirect('/profile')->with('message', 'Welcome back.');
+            return redirect('/profile')->with('message', 'Welcome back, '.auth()->user()->first_name.'.');
         }
         
         // Or email

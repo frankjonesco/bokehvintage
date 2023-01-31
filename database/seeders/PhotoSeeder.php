@@ -88,11 +88,17 @@ class PhotoSeeder extends Seeder
                 'filename' => 'w43BwAEWZiz-camdenmoo.webp',
                 'status' => 'public'
             ],
+            [
+                'hex' => 'OajguUF3K3q',
+                'user_id' => 1,
+                'filename' => 'tbvjrQ74m2I-camdenmoo.webp',
+                'status' => 'public'
+            ],
             
         ];
 
         foreach($photos as $photo){
-            Photo::insert([
+            Photo::create([
                 'hex' => $photo['hex'],
                 'user_id' => $photo['user_id'],
                 'filename' => $photo['filename'],

@@ -22,7 +22,10 @@ class CameraController extends Controller
         return view('cameras.index', [
             'lenses' => $site->getLenses(),
             'views' => $site->views,
-            'active_nav' => 'cameras'
+            'active_nav' => 'cameras',
+            'meta' => [
+                'title' => 'Cameras'
+            ]
         ]);
     }
 

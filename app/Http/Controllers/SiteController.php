@@ -9,12 +9,8 @@ class SiteController extends Controller
 {
     // Show homepage
     public function home(){
-        $site = Site::where('id', 1)->first();
-        $site->views = $site->views() + 1;
-        $site->save();
         return view('home', [
-            'views' => $site->views,
-            'active_nav' => 'photos'
+            'active_nav' => null
         ]);
     }
 

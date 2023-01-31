@@ -2,13 +2,24 @@
 <html lang="en">
 <head>
     @php
+        $default_meta = [
+            'title' => 'Bokeh Vintage - Best vintage lenses, mirrorless cameras',
+            'description' => 'A collective for bokeh enthusiasts. Experimental vintage lens, mirrorless camera combinations.',
+            'keywords' => 'bokeh, photography, vintage, lens, experimental, mirrorless, camera, photograpy, bokeh photography, vintage lens, experimental photography, mirrorless camera, vintage bokeh photography, experimental bokeh photography, mirrorless camera vitage lenses, bokeh mirrorless camera'
+        ];
         if(!isset($meta)){
             $meta = [
-                'title' => 'Bokeh Vintage - Best vintage lenses mirrorless cameras',
-                'description' => 'A collective for bokeh enthusiasts. Experimental vintage lens, mirrorless camera combinations.',
-                'keywords' => 'bokeh, photography, vintage, lens, experimental, mirrorless, camera, photograpy, bokeh photography, vintage lens, experimental photography, mirrorless camera, vintage bokeh photography, experimental bokeh photography, mirrorless camera vitage lenses, bokeh mirrorless camera'
+                'title' => $default_meta['title'],
+                'description' => $default_meta['description'],
+                'keywords' => $default_meta['keywords']
             ];
-        }    
+        }else{
+            $meta = [
+                'title' => isset($meta['title']) ? $meta['title'].' - Bokeh Vintage, Mirrorless cameras' : $default_meta['title'],
+                'description' => isset($meta['description']) ? $meta['description'] : $default_meta['description'],
+                'keywords' => isset($meta['keywords']) ? $meta['keywords'] : $default_meta['keywords']
+            ];
+        }
     @endphp
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,12 +46,12 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 
     {{-- Development scripts --}}
-    @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js']) --}}
 
     {{-- Production scripts --}}
-    {{-- <link rel="stylesheet" href="{{asset('build/assets/app-35613ee9.css')}}">
-    <link rel="stylesheet" href="{{asset('build/assets/app-35613ee9.css')}}">
-    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
+    <link rel="stylesheet" href="{{asset('build/assets/app-4c403b0e.css')}}">
+    <link rel="stylesheet" href="{{asset('build/assets/app-d564a820.css')}}">
+    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script>
 
 </head>
 <body>
@@ -49,7 +60,7 @@
 
     <div class="mx-auto my-7 w-[911px] font-normal flex justify-end">
         <div class="w-min whitespace-nowrap p-3">
-            Views: {{number_format($views, 0, '.', ',')}}
+            Views: {{number_format(siteViews(), 0, '.', ',')}}
         </div>
     </div>
     <a href="/">

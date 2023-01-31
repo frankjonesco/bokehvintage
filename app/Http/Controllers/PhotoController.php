@@ -17,7 +17,10 @@ class PhotoController extends Controller
         return view('photos.index', [
             'photos' => $site->getPhotos(),
             'views' => $site->views,
-            'active_nav' => 'photos'
+            'active_nav' => 'photos',
+            'meta' => [
+                'title' => 'Photos'
+            ]
         ]);
     }
 
@@ -51,6 +54,6 @@ class PhotoController extends Controller
 
         $photo->save();
         
-        return redirect('profile')->with('success', 'Your image was uploaded. Now let\'s crop it.');
+        return redirect('photos')->with('success', 'Your image was uploaded. Now let\'s crop it.');
     }
 }

@@ -1,4 +1,4 @@
-<x-layout :views="$views" :active-nav="$active_nav">
+<x-layout :meta="$meta" :active-nav="$active_nav">
     <style>
         .photo-container {
           position: relative;

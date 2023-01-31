@@ -128,6 +128,13 @@ nav.shift ul li a:hover:after {
         @apply text-white;
     }
 
+
+    /* Text styles */
+
+    h1{
+        @apply text-3xl;
+    }
+
 }
 
 

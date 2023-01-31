@@ -16,7 +16,10 @@ class ProfileController extends Controller
         return view('profile.index', [
             'photos' => $site->getPhotos(),
             'views' => $site->views(),
-            'active_nav' => 'profile'
+            'active_nav' => 'profile',
+            'meta' => [
+                'title' => 'Profile'
+            ]
         ]);
     }
 

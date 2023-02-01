@@ -46,12 +46,12 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 
     {{-- Development scripts --}}
-    @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js']) --}}
 
     {{-- Production scripts --}}
-    {{-- <link rel="stylesheet" href="{{asset('build/assets/app-8386c908.css')}}">
-    <link rel="stylesheet" href="{{asset('build/assets/app-ce488dcd.css')}}">
-    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
+    <link rel="stylesheet" href="{{asset('build/assets/app-082f2663.css')}}">
+    <link rel="stylesheet" href="{{asset('build/assets/app-6c3e4f6f.css ')}}">
+    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script>
 
 </head>
 <body class="w-screen h-screen">

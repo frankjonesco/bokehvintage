@@ -36,7 +36,9 @@ class CameraController extends Controller
      */
     public function create()
     {
-
+        return view('cameras.create', [
+            'active_nav' => 'profile',
+        ]);
     }
 
     /**

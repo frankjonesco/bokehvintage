@@ -26,7 +26,7 @@
         @foreach($photos as $photo)
             <div class="mx-2.5 mb-5">
                 <div class="photo-container">
-                    <img src="{{asset('images/photos/'.$photo->hex.'/xs-'.$photo->filename)}}" class="h-[213px] aspect-auto photo transform transition-all duration-17500 ease-out !scale-50 !rotate-45 !translate-x-20 !opacity-0" data-replace="{ '!scale-50': '!scale-100', '!rotate-45': '!rotate-0', '!translate-x-20': '!translate-x-0', '!opacity-0': 'opacity-100' }" alt="">
+                    <img src="{{asset('images/photos/'.$photo->hex.'/xs-'.$photo->filename)}}" class="h-[213px] aspect-auto photo transform transition-all duration-17500 ease-out !scale-50 !opacity-0" data-replace="{ '!scale-50': '!scale-100', '!opacity-0': 'opacity-100' }" alt="">
                     <div class="overlay">
                         <div class="flex h-full justify-center items-center">
                             <a href="#" class="btn">View photo</a>
@@ -36,6 +36,7 @@
             </div>
         @endforeach
     </div>
+    
 
     {{-- <div class="fixed left-0 top-0 p-12 w-screen h-screen bg-slate-100 z-20">
         <div class="flex">

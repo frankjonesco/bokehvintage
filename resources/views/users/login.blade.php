@@ -19,7 +19,7 @@
                 >
                 <button 
                     type="submit"
-                    class="mt-2 py-3 px-3 bg-gray-800 text-white whitespace-nowrap w-min rounded-sm"
+                    class="mt-2 py-3 px-3 bg-gray-800 text-white whitespace-nowrap w-min rounded-sm text-lg"
                 >
                     Log in to your account
                 </button>

@@ -74,7 +74,7 @@ Route::controller(LensController::class)->group(function(){
 */
 
 Route::controller(CameraController::class)->middleware('auth')->group(function(){
-    
+    Route::get('/cameras/create', 'create');
 });
 
 Route::controller(CameraController::class)->group(function(){

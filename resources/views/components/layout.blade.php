@@ -49,27 +49,41 @@
     @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
 
     {{-- Production scripts --}}
-    {{-- <link rel="stylesheet" href="{{asset('build/assets/app-4c403b0e.css')}}">
-    <link rel="stylesheet" href="{{asset('build/assets/app-d564a820.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('build/assets/app-8386c908.css')}}">
+    <link rel="stylesheet" href="{{asset('build/assets/app-ce488dcd.css')}}">
     <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
 
 </head>
 <body class="w-screen h-screen">
 
-    <div class="flex flex-col h-screen">
+    <div class="flex flex-col">
         <div class="mx-auto my-7 pl-3 w-[911px] font-normal flex justify-end items-center">
             
-            <a href="https://www.facebook.com/profile.php?id=100089861233864" class="transition-all duration-1000 hover:rotate-180 hover:text-lime-400">
+            <a 
+                href="https://www.facebook.com/profile.php?id=100089861233864"
+                target="_blank"
+                aria-label="Link to Bokeh Vintage Facebook Page"    
+            >
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="https://twitter.com/BokehVintage" target="_blank" class="mx-3 transition-all duration-1000 hover:rotate-180 hover:text-lime-400">
+            <a 
+                href="https://twitter.com/BokehVintage" 
+                target="_blank"
+                class="mx-4"
+                aria-label="Link to Bokeh Vintage Twitter"    
+            >
                 <i class="fa-brands fa-twitter"></i>
             </a>
-            <a href="https://www.instagram.com/" class="transition-all duration-1000 hover:rotate-180 hover:text-lime-400">
+            <a 
+                href="https://www.instagram.com/"
+                target="_blank"
+                aria-label="Link to Bokeh Vintage Instagram"
+            >
                 <i class="fa-brands fa-instagram"></i>
             </a>
             <div class="w-min whitespace-nowrap p-3 grow text-end">
-                Views: {{number_format(siteViews(), 0, '.', ',')}}
+                <span class="mr-2">Views:</span>
+                <span>{{number_format(siteViews(), 0, '.', ',')}}</span>
             </div>
         </div>
 
@@ -109,33 +123,35 @@
             </ul>
         </nav>
 
-        <main class="grow h-full">
+        <main class="grow mb-40">
             {{$slot}}
         </main>
 
-        <footer class="mx-12 mt-12 py-6 border-t border-t-gray-400 flex">
-            <ul class="flex grow">
-                <li class="mr-5">
-                    <a href="/" class="underline-offset-8 hover:underline">Home</a>
-                </li>
-                <li class="mr-5">
-                    <a href="/about" class="underline-offset-8 hover:underline">About</a>
-                </li>
-                <li class="mr-5">
-                    <a href="/contact" class="underline-offset-8 hover:underline">Contact</a>
-                </li>
-                <li class="mr-5">
-                    <a href="/terms" class="underline-offset-8 hover:underline">Terms</a>
-                </li>
-                <li class="mr-5">
-                    <a href="/privacy" class="underline-offset-8 hover:underline">Privacy</a>
-                </li>
-            </ul>
-            <span>
-                <a href="/"" class="underline-offset-8 hover:underline">Bokeh Vintage</a>
-            </span>
-            <span class="mx-4">|</span>
-            <span>Copyright &copy; {{date('Y', time())}}</span>
+        <footer class="fixed bottom-0 w-full bg-white bg-opacity-80 mt-12 py-10 text-lg border-t border-t-gray-400 z-50">
+            <div class="flex mx-12">
+                <ul class="flex grow">
+                    <li>
+                        <a href="/" class="px-2.5 border-b-gray-500 border-b-0 pb-3 hover:border-b">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about" class="px-2.5 border-b-gray-500 border-b-0 pb-3 hover:border-b">About</a>
+                    </li>
+                    <li>
+                        <a href="/contact" class="px-2.5 border-b-gray-500 border-b-0 pb-3 hover:border-b">Contact</a>
+                    </li>
+                    <li>
+                        <a href="/terms" class="px-2.5 border-b-gray-500 border-b-0 pb-3 hover:border-b">Terms</a>
+                    </li>
+                    <li>
+                        <a href="/privacy" class="px-2.5 border-b-gray-500 border-b-0 pb-3 hover:border-b">Privacy</a>
+                    </li>
+                </ul>
+                <span>
+                    <a href="/" class="px-2.5 border-b-gray-500 border-b-0 pb-3 hover:border-b">Bokeh Vintage</a>
+                </span>
+                <span class="ml-1.5 mr-4">|</span>
+                <span>Copyright &copy; {{date('Y', time())}}</span>
+            </div>
 
         </footer>
     </div>

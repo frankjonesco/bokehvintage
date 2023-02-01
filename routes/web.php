@@ -116,6 +116,11 @@ Route::controller(ProfileController::class)->middleware('auth')->group(function(
     Route::get('/profile', 'index');
     Route::post('/profile/lenses/upload/image', 'uploadLensImage');
     Route::post('/profile/cameras/upload/image', 'uploadCameraImage');
+    Route::get('/profile/picture', 'editProfilePicture');
+    Route::post('/profile/picture/upload/image', 'uploadProfilePicture');
+    Route::get('/profile/settings', 'editSettings');
+    Route::get('/profile/password', 'editPassword');
+    Route::post('/profile/password/update', 'updatePassword');
 });
 
 

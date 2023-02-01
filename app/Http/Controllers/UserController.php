@@ -88,7 +88,7 @@ class UserController extends Controller
             return redirect('/profile')->with('message', 'Welcome back.');
         }
         
-        // Or regect login attempt
+        // Or reject login attempt
         else{
             return back()->withErrors(['username' => 'Invalid credentials.'])->onlyInput('username');
         }

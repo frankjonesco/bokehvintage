@@ -16,25 +16,32 @@
 
 nav ul li a,
 nav ul li a:after,
-nav ul li a:before {
+nav ul li a:before,
+nav ul li button,
+nav ul li button:after,
+nav ul li button:before {
     transition: all .35s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover ,
+nav ul li button:hover {
     color: #ff0000;
 }
 
 /* SHIFT */
-nav.shift ul li a {
+nav.shift ul li a,
+nav.shift ul li button {
     position:relative;
     z-index: 1;
 }
 
-nav.shift ul li a:hover {
+nav.shift ul li a:hover,
+nav.shift ul li button:hover {
     color: #fff;
 }
 
-nav.shift ul li a:after {
+nav.shift ul li a:after,
+nav.shift ul li button:after {
     display: block;
     position: absolute;
     top: 0;
@@ -53,7 +60,8 @@ nav.shift ul li a:after {
     border-radius: 0.125rem;
 }
 
-nav.shift ul li a:hover:after {
+nav.shift ul li a:hover:after,
+nav.shift ul li button:hover:after {
     opacity: 1;
     visibility: visible;
     height: 100%;

@@ -4,7 +4,7 @@
         <ul class="mx-5 list-disc">
             @foreach($cameras as $camera)
                 <li>
-                    <a href="/cameras/{{$camera->brand->slug}}-{{$camera->slug}}/{{$camera->hex}}" class="underline underline-offset-2">
+                    <a href="/cameras/{{$camera->brand->slug}}-{{$camera->slug}}/{{$camera->hex}}" class=" underline-offset-2 hover:underline hover:text-black">
                         {{$camera->brand->name}} {{$camera->model}}
                     </a>
                 </li>

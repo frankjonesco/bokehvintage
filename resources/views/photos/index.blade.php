@@ -49,7 +49,7 @@
         </div>
     </div> --}}
 
-    <script>
+    {{-- <script>
         document.addEventListener("DOMContentLoaded", function(){
             var replacers = document.querySelectorAll('[data-replace]');
             for(var i=0; i<replacers.length; i++){
@@ -61,6 +61,6 @@
                 
             }
         });
-    </script>
+    </script> --}}
 
 </x-layout>

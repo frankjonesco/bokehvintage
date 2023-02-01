@@ -46,12 +46,12 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 
     {{-- Development scripts --}}
-    {{-- @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
 
     {{-- Production scripts --}}
-    <link rel="stylesheet" href="{{asset('build/assets/app-082f2663.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('build/assets/app-082f2663.css')}}">
     <link rel="stylesheet" href="{{asset('build/assets/app-6c3e4f6f.css ')}}">
-    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script>
+    <script src="{{ asset('build/assets/app-ef00eeea.js') }}" defer></script> --}}
 
 </head>
 <body class="w-screen h-screen">
@@ -62,6 +62,7 @@
             <a 
                 href="https://www.facebook.com/profile.php?id=100089861233864"
                 target="_blank"
+                class="text-gray-900"
                 aria-label="Link to Bokeh Vintage Facebook Page"    
             >
                 <i class="fa-brands fa-facebook-f"></i>
@@ -69,7 +70,7 @@
             <a 
                 href="https://twitter.com/BokehVintage" 
                 target="_blank"
-                class="mx-4"
+                class="mx-4 text-gray-900"
                 aria-label="Link to Bokeh Vintage Twitter"    
             >
                 <i class="fa-brands fa-twitter"></i>
@@ -77,11 +78,12 @@
             <a 
                 href="https://www.instagram.com/"
                 target="_blank"
+                class="text-gray-900"
                 aria-label="Link to Bokeh Vintage Instagram"
             >
                 <i class="fa-brands fa-instagram"></i>
             </a>
-            <div class="w-min whitespace-nowrap p-3 grow text-end">
+            <div class="text-gray-800 w-min whitespace-nowrap p-3 grow text-end">
                 <span class="mr-2">Views:</span>
                 <span>{{number_format(siteViews(), 0, '.', ',')}}</span>
             </div>
@@ -127,7 +129,7 @@
             {{$slot}}
         </main>
 
-        <footer class="fixed bottom-0 w-full bg-white bg-opacity-80 mt-12 py-10 text-lg border-t border-t-gray-400 z-50">
+        <footer class="text-gray-800 fixed bottom-0 w-full bg-white bg-opacity-80 mt-12 py-10 text-lg border-t border-t-gray-400 z-50">
             <div class="flex mx-12">
                 <ul class="flex grow">
                     <li>
@@ -150,7 +152,14 @@
                     <a href="/" class="px-2.5 border-b-gray-500 border-b-0 pb-3 hover:border-b">Bokeh Vintage</a>
                 </span>
                 <span class="ml-1.5 mr-4">|</span>
-                <span>Copyright &copy; {{date('Y', time())}}</span>
+                {{-- <span>Copyright &copy; {{date('Y', time())}}</span> --}}
+                <span>
+                    @auth
+                        <a href="/profile" class="px-2.5 border-b-gray-500 border-b-0 pb-3 hover:border-b">My profile</a>
+                    @else
+                        <a href="/signup" class="px-2.5 border-b-gray-500 border-b-0 pb-3 hover:border-b">Join the community</a>
+                    @endauth
+                </span>
             </div>
 
         </footer>

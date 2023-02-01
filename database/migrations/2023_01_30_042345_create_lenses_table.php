@@ -15,8 +15,15 @@ return new class extends Migration
     {
         Schema::create('lenses', function (Blueprint $table) {
             $table->id();
+            $table->string('hex', 11)->unique();
+            $table->foreignId('brand_id');
+            $table->foreignId('user_id');
+            $table->string('model');
+            $table->string('slug');
+            $table->string('image')->nullable();
+            $table->text('description')->nullable();
+            $table->longText('article_body')->nullable();
             $table->timestamps();
-            $table->string('status', 8);
         });
     }
 

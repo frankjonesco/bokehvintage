@@ -1,5 +1,14 @@
 <x-layout :meta="$meta" :active-nav="$active_nav">
     <x-container-thin>
-        <h1 class="mt-24 text-center">The <span class="underline underline-offset-8">lenses</span> page is still being developed.</h1>
+        <h1 class="mb-8">Lenses</h1>
+        <ul class="mx-5 list-disc">
+            @foreach($lenses as $lens)
+                <li class="py-1 pl-2">
+                    <a href="/lenses/{{$lens->brand->slug}}-{{$lens->slug}}/{{$lens->hex}}" class=" underline-offset-2 hover:underline hover:text-black">
+                        {{$lens->brand->name}} {{$lens->model}}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
     </x-container-thin>
 </x-layout>

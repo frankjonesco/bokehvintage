@@ -59,10 +59,12 @@ Route::controller(PhotoController::class)->group(function(){
 
 Route::controller(LensController::class)->middleware('auth')->group(function(){
     Route::get('/lenses/create', 'create');
+    Route::post('/lenses/store', 'store');
 });
 
 Route::controller(LensController::class)->group(function(){
     Route::get('/lenses', 'index');
+    Route::get('/lenses/{slug}/{lens}', 'show');
 });
 
 
@@ -75,6 +77,7 @@ Route::controller(LensController::class)->group(function(){
 
 Route::controller(CameraController::class)->middleware('auth')->group(function(){
     Route::get('/cameras/create', 'create');
+    Route::post('/cameras/store', 'store');
 });
 
 Route::controller(CameraController::class)->group(function(){
@@ -110,6 +113,7 @@ Route::controller(UserController::class)->middleware('guest')->group(function(){
 
 Route::controller(ProfileController::class)->middleware('auth')->group(function(){
     Route::get('/profile', 'index');
+    Route::post('/profile/upload/image', 'uploadImage');
 });
 
 

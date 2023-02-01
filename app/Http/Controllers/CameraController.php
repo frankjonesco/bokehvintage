@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\s;
 use App\Models\Site;
+use App\Models\Brand;
 use App\Models\Camera;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CameraController extends Controller
 {
@@ -16,12 +19,8 @@ class CameraController extends Controller
      */
     public function index(Site $site)
     {
-        $site = Site::where('id', 1)->first();
-        $site->views = $site->views() + 1;
-        $site->save();
         return view('cameras.index', [
-            'lenses' => $site->getLenses(),
-            'views' => $site->views,
+            'cameras' => $site->getCameras(),
             'active_nav' => 'cameras',
             'meta' => [
                 'title' => 'Cameras'
@@ -49,7 +48,21 @@ class CameraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'brand' => ['required', 'min:3', 'max:30', Rule::exists('brands', 'name')],
+            'model' => ['required', 'min:3', 'max:30', Rule::unique('cameras', 'model')],
+        ]);
+        
+
+        Camera::create([
+            'hex' => Str::random(11),
+            'brand_id' => Brand::select('id')->where('name', $request->brand)->first()->id,
+            'user_id' => auth()->user()->id,
+            'model' => $request->model,
+            'slug' => makeSlug($request->model)
+        ]);
+
+        return redirect('cameras')->with('message', 'Your camera was added.');
     }
 
     /**
@@ -69,7 +82,7 @@ class CameraController extends Controller
      * @param  \App\Models\Camera  $camera
      * @return \Illuminate\Http\Response
      */
-    public function edit(s $s)
+    public function edit(Camera $camera)
     {
         //
     }

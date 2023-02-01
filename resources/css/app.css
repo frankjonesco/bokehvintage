@@ -143,6 +143,10 @@ nav.shift ul li a:hover:after {
         @apply text-3xl;
     }
 
+    p{
+        @apply my-4
+    }
+
 }
 
 

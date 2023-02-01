@@ -2,8 +2,8 @@
     <div class="mt-16 mx-auto p- w-[911px] flex flex-col items-center">
         <form id="imageUpload" action="/photos/store" method="POST" enctype="multipart/form-data" class="flex flex-col items-center">
             @csrf
-            <input name="photo" type="file" id="inputPhoto" class="hidden" />
-            <button type="button" class="btn mt-20 mb-5" onclick="document.getElementById('inputPhoto').click();">
+            <input name="photo" type="file" id="imageInput" class="hidden" />
+            <button type="button" class="btn mt-20 mb-5" onclick="document.getElementById('imageInput').click();">
                 Post a new photo
             </button>
             @error('photo')
@@ -19,7 +19,7 @@
         </a>
     </div>
     <script>
-        document.getElementById("inputPhoto").onchange = function(){
+        document.getElementById("imageInput").onchange = function(){
             document.getElementById("imageUpload").submit();
         }    
     </script>

@@ -19,16 +19,56 @@ class BrandSeeder extends Seeder
         $brands = [
             [
                 'hex' => Str::random(11),
-                'name' => 'Canon',
-                'slug' => 'canon',
-                'logo' => 'canon-udGt6dFwEN4.webp',
+                'user_id' => 1,
+                'name' => 'Leica',
+                'slug' => 'leica',
             ],
             [
                 'hex' => Str::random(11),
+                'user_id' => 1,
+                'name' => 'Minolta',
+                'slug' => 'minolta',
+            ],
+            [
+                'hex' => Str::random(11),
+                'user_id' => 1,
+                'name' => 'Contax Zeiss',
+                'slug' => 'contax-zeiss',
+            ],
+            [
+                'hex' => Str::random(11),
+                'user_id' => 1,
                 'name' => 'Nikon',
                 'slug' => 'nikon',
-                'logo' => 'nikon-3Wecs2os9dS.webp',
-            ]
+            ],
+            [
+                'hex' => Str::random(11),
+                'user_id' => 1,
+                'name' => 'Tokina',
+                'slug' => 'tokina',
+            ],
+            [
+                'hex' => Str::random(11),
+                'user_id' => 1,
+                'name' => 'Voigtlander',
+                'slug' => 'voigtlander',
+            ],
+            [
+                'hex' => Str::random(11),
+                'user_id' => 1,
+                'name' => 'Tokina',
+                'slug' => 'tokina',
+            ],
+            [
+                'hex' => Str::random(11),
+                'user_id' => 1,
+                'name' => 'Voigtlander',
+                'slug' => 'voigtlander',
+            ],
+            
+            
+
+            
         ];
 
         foreach($brands as $brand){

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('hex', 11)->unique();
+            $table->foreignId('user_id');
             $table->string('name');
             $table->string('slug');
             $table->string('logo')->nullable();

@@ -54,6 +54,6 @@ class PhotoController extends Controller
 
         $photo->save();
         
-        return redirect('photos')->with('success', 'Your image was uploaded. Now let\'s crop it.');
+        return redirect('photos')->with('message', 'Your photo was added.');
     }
 }

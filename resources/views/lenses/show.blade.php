@@ -7,7 +7,7 @@
             </h1>
 
             @auth
-                <form id="imageUpload" action="/profile/upload/image" method="POST" enctype="multipart/form-data" class="flex flex-col items-center">
+                <form id="imageUpload" action="/profile/lenses/upload/image" method="POST" enctype="multipart/form-data" class="flex flex-col items-center">
                     @csrf
                     <input name="hex" type="hidden" value="{{$lens->hex}}" />
                     <input name="image_type" type="hidden" value="lens" />
@@ -21,7 +21,7 @@
             @endauth
         </div>
 
-        <img src="{{asset('images/lenses/'.$lens->hex.'/'.$lens->image)}}" alt="" class="mb-7 mx-auto rounded-sm">
+        <img src="{{asset('images/lenses/'.$lens->hex.'/sm-'.$lens->image)}}" alt="" class="mb-7 mx-auto rounded-sm">
 
         {!!$lens->article_body!!}
 

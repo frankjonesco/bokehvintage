@@ -65,6 +65,12 @@ class BrandSeeder extends Seeder
                 'name' => 'Voigtlander',
                 'slug' => 'voigtlander',
             ],
+            [
+                'hex' => Str::random(11),
+                'user_id' => 1,
+                'name' => 'Pentax',
+                'slug' => 'pentax',
+            ],
             
             
 

@@ -49,8 +49,8 @@ class CameraController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'brand' => ['required', 'min:3', 'max:30', Rule::exists('brands', 'name')],
-            'model' => ['required', 'min:3', 'max:30', Rule::unique('cameras', 'model')],
+            'brand' => ['required', 'max:30', Rule::exists('brands', 'name')],
+            'model' => ['required', 'max:30', Rule::unique('cameras', 'model')],
         ]);
         
 
@@ -71,9 +71,16 @@ class CameraController extends Controller
      * @param  \App\Models\Camera  $camera
      * @return \Illuminate\Http\Response
      */
-    public function show(Camera $camera)
+    public function show($slug, Camera $camera)
     {
-        //
+        return view('cameras.show', [
+            'camera' => $camera,
+            'active_nav' => 'cameras',
+            'meta' => [
+                'title' => $camera->brand->name.' '.$camera->model,
+                'description' => truncate(strip_tags($camera->article_body), 250)
+            ]
+        ]);
     }
 
     /**

@@ -5,6 +5,9 @@ use Illuminate\Support\Str;
 
 
 
+
+
+
 if(!function_exists('siteViews')){
     function siteViews(){
         $site = Site::where('id', 1)->first();
@@ -13,6 +16,18 @@ if(!function_exists('siteViews')){
         return $site->views;
     }
 }
+
+
+
+
+// Truncate
+if(!function_exists('truncate')){
+    function truncate($str, $limit = 45) {
+        return Str::limit($str, $limit);
+    }
+}
+
+
 
 if(!function_exists('makeSlug')){
     function makeSlug($value){

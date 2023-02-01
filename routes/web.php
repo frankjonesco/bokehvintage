@@ -82,6 +82,7 @@ Route::controller(CameraController::class)->middleware('auth')->group(function()
 
 Route::controller(CameraController::class)->group(function(){
     Route::get('/cameras', 'index');
+    Route::get('/cameras/{slug}/{camera}', 'show');
 });
 
 
@@ -113,7 +114,8 @@ Route::controller(UserController::class)->middleware('guest')->group(function(){
 
 Route::controller(ProfileController::class)->middleware('auth')->group(function(){
     Route::get('/profile', 'index');
-    Route::post('/profile/upload/image', 'uploadImage');
+    Route::post('/profile/lenses/upload/image', 'uploadLensImage');
+    Route::post('/profile/cameras/upload/image', 'uploadCameraImage');
 });
 
 
